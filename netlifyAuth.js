@@ -2,7 +2,9 @@ import netlifyIdentity from "netlify-identity-widget"
 
 const netlifyAuth = {
   isAuthenticated: false,
+
   user: null,
+
   initialize(callback) {
     window.netlifyIdentity = netlifyIdentity
     netlifyIdentity.on("init", (user) => {
@@ -10,6 +12,7 @@ const netlifyAuth = {
     })
     netlifyIdentity.init()
   },
+
   authenticate(callback) {
     this.isAuthenticated = true
     netlifyIdentity.open()
@@ -19,6 +22,7 @@ const netlifyAuth = {
       netlifyIdentity.close()
     })
   },
+
   signout(callback) {
     this.isAuthenticated = false
     netlifyIdentity.logout()
